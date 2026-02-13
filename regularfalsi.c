@@ -1,23 +1,25 @@
-//Find a root of the equation 3x - 1- cos(x) = 0  by using Regular Falsi Method. Correct upto 4 decimal places.
+// Find a root of the equation 3x - 1- cos(x) = 0  by using Regular Falsi Method. Correct upto 4 decimal places.
 
 #include <stdio.h>
 #include <math.h>
 
 #define ESP 0.0001
-#define f(x) x * tan(x) - 1.28
+#define f(x) 3 * x - 1 - cos(x)
 
-void main(){
+void main()
+{
 
     float x0, x1, x2, f0, f1, f2;
     int i = 0;
 
-
-    do{
+    do
+    {
         printf("\nEnter the value of x0: ");
         scanf("%f", &x0);
     } while (f(x0) > 0);
 
-    do{
+    do
+    {
         printf("\nEnter the value of x1: ");
         scanf("%f", &x1);
     } while (f(x1) < 0);
@@ -27,7 +29,7 @@ void main(){
     {
         f0 = f(x0);
         f1 = f(x1);
-        
+
         x2 = x0 - (f0 * (x1 - x0)) / (f1 - f0);
         f2 = f(x2);
 
@@ -40,9 +42,8 @@ void main(){
         else
         {
             x0 = x2;
-        }               
+        }
         i++;
     } while (fabs(f2) > ESP);
     printf("\n\n\nApprox value of root is: %.4f", x2);
-
 }
